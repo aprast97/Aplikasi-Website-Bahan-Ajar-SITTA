@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Aplikasi SITTA</title>
+
+    <!-- Memuat stylesheet umum dan stylesheet dashboard -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Navbar utama untuk berpindah ke halaman stok, tracking, laporan, dan logout -->
+    <nav class="navbar">
+        <!-- Fungsi icon untuk kembali ke dashboard -->
+        <a class="brand" href="dashboard.html">
+            <img src="assets/img/logo-ut-small.png" alt="Logo UT">
+            <span>SITTA</span>
+        </a>
+
+        <!-- Menu navigasi -->
+        <ul class="nav-links">
+            <li><a href="stock.html">Informasi Bahan Ajar</a></li>
+            <li><a href="tracking.html">Tracking Pengiriman</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Laporan <i class="fa-solid fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#">Rekap Bahan Ajar</a>
+                </div>
+            </li>
+            <li><a href="#">Histori Transaksi Bahan Ajar</a></li>
+            <li><a href="#" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Konten utama dashboard berisi sapaan pengguna dan ringkasan fitur -->
+    <main class="dashboard-container">
+        <!-- Header halaman untuk menampilkan judul, sapaan, dan identitas pengguna -->
+        <section class="page-header">
+            <div>
+                <h1 class="dashboard-title">Dashboard Aplikasi SITTA</h1>
+                <h2 class="greeting" id="greetingText">Selamat datang</h2>
+                <p id="userSummary" class="muted-text">Petugas Universitas Terbuka</p>
+            </div>
+        </section>
+
+        <!-- Kartu informasi singkat sebagai pengantar penggunaan aplikasi -->
+        <section class="dashboard-grid">
+            <div class="welcome-card">
+                <h3>Kelola Pemesanan dan Distribusi Bahan Ajar</h3>
+                <p>Gunakan menu navigasi untuk melihat stok bahan ajar, melacak Delivery Order, dan membuka laporan transaksi.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Memuat data demo, fungsi umum, dan fungsi khusus dashboard -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

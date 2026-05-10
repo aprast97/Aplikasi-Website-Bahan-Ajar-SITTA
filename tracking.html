@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - SITTA</title>
+
+    <!-- Memuat stylesheet umum dan stylesheet tracking -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Navbar utama untuk berpindah ke halaman dashboard, stok, tracking, laporan, dan logout. -->
+    <nav class="navbar">
+        <!-- Klik icon untuk kembali ke dashboard -->
+        <a class="brand" href="dashboard.html">
+            <img src="assets/img/logo-ut-small.png" alt="Logo UT">
+            <span>SITTA</span>
+        </a>
+
+        <!-- Menu navigasi halaman setelah login -->
+        <ul class="nav-links">
+            <li><a href="stock.html">Informasi Bahan Ajar</a></li>
+            <li><a href="tracking.html">Tracking Pengiriman</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Laporan <i class="fa-solid fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#">Rekap Bahan Ajar</a>
+                </div>
+            </li>
+            <li><a href="#">Histori Transaksi Bahan Ajar</a></li>
+            <li><a href="#" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Konten utama halaman tracking pengiriman -->
+    <main class="dashboard-container tracking-page-container">
+        <!-- Header halaman untuk menampilkan judul -->
+        <div class="page-header">
+            <div>
+                <h1 class="dashboard-title">Tracking Pengiriman</h1>
+                <p class="muted-text">Masukkan Nomor Delivery Order untuk melihat status pengiriman bahan ajar</p>
+            </div>
+        </div>
+
+        <!-- Form pencarian nomor Delivery Order untuk memulai proses tracking -->
+        <div class="search-tracking-row">
+            <label for="inputDOTracking">No. DO/Billing</label>
+            <input type="text" id="inputDOTracking" placeholder="2023001234">
+            <button id="btnLacak" class="btn-lacak"><i class="fa-solid fa-location-dot"></i> Lacak</button>
+        </div>
+
+        <!-- Kontainer hasil tracking yang ditampilkan setelah nomor DO ditemukan -->
+        <div id="trackingResult" class="tracking-result-container" style="display: none;">
+
+            <!-- Ringkasan utama pengiriman berisi nama, nomor DO, status, dan waktu update -->
+            <div class="blue-card-header">
+                <div class="card-left">
+                    <h3 id="resNama">NAMA MAHASISWA</h3>
+                    <p id="resDO" class="text-large">18503984974</p>
+                    <span id="resStatus" class="status-badge">Status</span>
+                </div>
+                <div class="card-right">
+                    <p id="resTanggalUpdate" class="text-date">2026-05-03<br>15:56:02</p>
+                </div>
+            </div>
+
+            <!-- Detail pengiriman berisi ekspedisi, tanggal kirim, jenis paket, dan total pembayaran -->
+            <div class="tracking-detail-grid">
+                <div>
+                    <span>Ekspedisi</span>
+                    <strong id="resEkspedisi">-</strong>
+                </div>
+                <div>
+                    <span>Tanggal Kirim</span>
+                    <strong id="resTanggalKirim">-</strong>
+                </div>
+                <div>
+                    <span>Jenis Paket</span>
+                    <strong id="resPaket">-</strong>
+                </div>
+                <div>
+                    <span>Total Pembayaran</span>
+                    <strong id="resTotal">-</strong>
+                </div>
+            </div>
+
+            <!-- Timeline perjalanan paket yang dirender berdasarkan dataTracking -->
+            <div class="tracking-timeline mt-4">
+                <h4>Perjalanan Paket</h4>
+                <ul id="timelineList" class="timeline"></ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Popup notifikasi tracking untuk input kosong atau nomor DO yang tidak ditemukan -->
+    <div id="modalTrackingNotification" class="modal">
+        <div class="modal-content modal-alert">
+            <span class="close-btn" id="closeTrackingNotification">&times;</span>
+            <div class="modal-icon modal-icon-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <h3 id="trackingNotificationTitle">Data Tracking</h3>
+            <p id="trackingNotificationMessage">Silakan periksa kembali nomor Delivery Order.</p>
+            <button type="button" class="btn-primary modal-action-btn" id="btnTutupTrackingNotification">Mengerti</button>
+        </div>
+    </div>
+
+    <!-- Memuat data demo, fungsi umum, dan fungsi khusus halaman tracking -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+
+</html>

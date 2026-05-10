@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Bahan Ajar - SITTA</title>
+
+    <!-- Memuat stylesheet umum dan stylesheet stock  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+    <!-- Navbar utama untuk berpindah ke halaman dashboard, stok, tracking, laporan, dan logout -->
+    <nav class="navbar">
+        <!-- Klik icon untuk kembali ke dashboard -->
+        <a class="brand" href="dashboard.html">
+            <img src="assets/img/logo-ut-small.png" alt="Logo UT">
+            <span>SITTA</span>
+        </a>
+
+        <!-- Menu navigasi halaman setelah login -->
+        <ul class="nav-links">
+            <li><a href="stock.html">Informasi Bahan Ajar</a></li>
+            <li><a href="tracking.html">Tracking Pengiriman</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Laporan <i class="fa-solid fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#">Rekap Bahan Ajar</a>
+                </div>
+            </li>
+            <li><a href="#">Histori Transaksi Bahan Ajar</a></li>
+            <li><a href="#" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Konten utama halaman stok bahan ajar -->
+    <main class="dashboard-container stock-page-container">
+        <!-- Header halaman untuk menampilkan judul dan jumlah data stok -->
+        <div class="page-header">
+            <div>
+                <h1 class="dashboard-title">Informasi Stok Bahan Ajar</h1>
+                <p class="muted-text">Daftar Tampilan data Bahan Ajar</p>
+            </div>
+            <span id="stokCount" class="pill-counter">0 bahan ajar</span>
+        </div>
+
+        <!-- Form untuk tambah stok baru dan menambahkan baris data ke tabel secara dinamis -->
+        <section class="form-stok-container">
+            <h3>Tambah Stok Baru</h3>
+            <form id="formTambahStok" class="form-stok">
+                <input type="text" id="inputKodeLokasi" placeholder="Kode Lokasi (ex: 0TMP01)" required>
+                <input type="text" id="inputKodeBarang" placeholder="Kode Barang" required>
+                <input type="text" id="inputNamaBarang" placeholder="Nama Barang" required>
+                <input type="text" id="inputJenisBarang" placeholder="Jenis (ex: BMP)" required>
+                <input type="number" id="inputEdisi" placeholder="Edisi" min="1" required>
+                <input type="number" id="inputStok" placeholder="Jumlah Stok" min="0" required>
+
+                <!-- Fungsi upload cover buku yang ditampilkan sebagai label custom -->
+                <label class="file-upload-field" for="inputCover">
+                    <i class="fa-solid fa-image"></i>
+                    <span id="coverFileName">Upload Cover</span>
+                    <input type="file" id="inputCover" accept="image/*">
+                </label>
+                <button type="submit" class="btn-primary"><i class="fa-solid fa-plus"></i> Tambah Baris</button>
+            </form>
+        </section>
+
+        <!-- Tabel stok yang isinya dari dataBahanAjar melalui JavaScript. -->
+        <section class="table-container">
+            <table class="stok-table">
+                <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Kode Lokasi</th>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Jenis</th>
+                        <th>Edisi</th>
+                        <th>Stok</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelStokBody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Popup notifikasi untuk menampilkan status tambah stok atau validasi input -->
+    <div id="modalStockNotification" class="modal">
+        <div class="modal-content modal-alert">
+            <span class="close-btn" id="closeStockNotification">&times;</span>
+            <div class="modal-icon" id="stockNotificationIcon">
+                <i class="fa-solid fa-circle-info" id="stockNotificationIconSymbol"></i>
+            </div>
+            <h3 id="stockNotificationTitle">Notifikasi Stok</h3>
+            <p id="stockNotificationMessage">Informasi stok bahan ajar.</p>
+            <button type="button" class="btn-primary modal-action-btn" id="btnTutupStockNotification">Mengerti</button>
+        </div>
+    </div>
+
+    <!-- Memuat data demo, fungsi umum, dan fungsi khusus halaman stock -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/stock.js"></script>
+</body>
+
+</html>

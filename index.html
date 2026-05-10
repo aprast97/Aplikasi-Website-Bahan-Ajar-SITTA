@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aplikasi SITTA</title>
+
+    <!-- Memuat stylesheet utama dan ikon Font Awesome untuk tampilan halaman login. -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Kontainer utama login untuk menempatkan kartu login di tengah halaman. -->
+    <main class="login-container">
+        <!-- Kartu login berisi identitas aplikasi dan form masuk pengguna. -->
+        <section class="login-card">
+            <img src="assets/img/logo-ut-small.png" alt="Logo Universitas Terbuka" class="login-logo">
+            <h1>SITTA</h1>
+            <p class="login-subtitle">Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+
+            <!-- Form login untuk menerima email dan password pengguna. -->
+            <form id="loginForm">
+                <!-- Input email pengguna. -->
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+
+                <!-- Input password pengguna. -->
+                <div class="input-group">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+
+                <!-- Link untuk membuka popup bantuan lupa password. -->
+                <div class="forgot-password">
+                    <a href="#" id="btnLupaPassword">Lupa password?</a>
+                </div>
+
+                <!-- Tombol submit untuk menjalankan validasi login. -->
+                <button type="submit" class="btn-login">Masuk</button>
+
+                <!-- Link untuk membuka popup informasi pendaftaran akun. -->
+                <div class="register-link">
+                    <a href="#" id="btnDaftar">Belum punya akun?</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Popup notifikasi password salah -->
+    <div id="modalLoginError" class="modal">
+        <div class="modal-content modal-alert">
+            <span class="close-btn" id="closeLoginError">&times;</span>
+            <div class="modal-icon modal-icon-error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3>Login Gagal</h3>
+            <p>Email atau password yang Anda masukkan salah. Silakan periksa kembali data login Anda.</p>
+            <button type="button" class="btn-primary modal-action-btn" id="btnTutupLoginError">Coba Lagi</button>
+        </div>
+    </div>
+
+    <!-- Popup notifikasi lupa password -->
+    <div id="modalLupaPassword" class="modal">
+        <div class="modal-content modal-alert">
+            <span class="close-btn" id="closeLupaPassword">&times;</span>
+            <div class="modal-icon">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <h3>Lupa Password</h3>
+            <p>Silakan hubungi admin UT untuk mereset password Anda.</p>
+        </div>
+    </div>
+
+    <!-- Popup notifikasi buat akun -->
+    <div id="modalDaftar" class="modal">
+        <div class="modal-content modal-alert">
+            <span class="close-btn" id="closeDaftar">&times;</span>
+            <div class="modal-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <h3>Pendaftaran Akun</h3>
+            <p>Silakan hubungi admin UT untuk membuat akun baru.</p>
+        </div>
+    </div>
+
+    <!-- Memuat data demo dan fungsi JavaScript utama halaman login -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
